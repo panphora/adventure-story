@@ -1,0 +1,23 @@
+<div class="page page--wide">
+  <div 
+    data-o-type="object"
+  >
+    {{log currentItem}}
+    {{log parentItem}}
+    {{#unless currentItem}}
+      {{#if parentItem.topLevelStory}}
+        <h3 class="page__heading">The beginning of your story...</h3>
+      {{/if}}
+    {{/unless}}
+    {{#if currentItem}}
+      {{#unless parentItem.topLevelStory}}
+        <a class="button m-b-32" href="/{{ currentUser.details.username }}/story/{{ parentItem.id }}">Back</a>
+      {{/unless}}
+    {{/if}}
+
+    <a class="button m-b-32" href="/{{ currentUser.details.username }}/story/{{ parentItem.id }}">Back</a>
+    <div class="story__current-choice bg-gray mb--2"><b>Your choice: </b>{{ currentItem.choiceText }}</div>
+  </div>
+</div>
+
+
