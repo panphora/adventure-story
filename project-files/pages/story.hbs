@@ -1,22 +1,18 @@
 <div class="page page--wide">
   <div 
+    class="story"
     data-o-type="object"
+    data-o-key-id="{{currentItem.id}}"
   >
-    {{log currentItem}}
-    {{log parentItem}}
-    {{#unless currentItem}}
-      {{#if parentItem.topLevelStory}}
-        <h3 class="page__heading">The beginning of your story...</h3>
-      {{/if}}
-    {{/unless}}
-    {{#if currentItem}}
-      {{#unless parentItem.topLevelStory}}
-        <a class="button m-b-32" href="/{{ currentUser.details.username }}/story/{{ parentItem.id }}">Back</a>
-      {{/unless}}
+    {{#if parentItem.stories}}
+      <div class="story__beginning-heading">In the beginning...</div>
     {{/if}}
-
-    <a class="button m-b-32" href="/{{ currentUser.details.username }}/story/{{ parentItem.id }}">Back</a>
-    <div class="story__current-choice bg-gray mb--2"><b>Your choice: </b>{{ currentItem.choiceText }}</div>
+    <div
+      class="story__content"
+      data-o-type="object"
+      data-l-key-content
+      data-i-editable="content(text-multi-line)"
+    >{{currentItem.content}}</div>
   </div>
 </div>
 

@@ -1,32 +1,32 @@
-{{#if pageHasAppData}}
-  <div
-    class="page"
-    data-o-type="object"
-  >
-    <h2 class="page__heading">Todo Lists</h2>
-    <div 
-      class="todo-lists"
-      data-o-key="todoLists"
-      data-o-type="list"
-    >
-      {{#each data.todoLists}}
-        {{> todoList todoList=this pageAuthor=@root.pageAuthor}}
-      {{/each}}
-    </div>
-    <div class="flex justify-content--flex-end">
-      <button 
-        class="button"
-        data-i-new="todoList .todo-lists"
-      >Add Todo List</button>
-    </div>
-  </div>
-{{else}}
+{{#BaseRoute}}
   <div class="page">
-    <h2 class="page__heading">Welcome to Todos!</h2>
+    <h2 class="page__heading">Welcome to Adventure Story!</h2>
     {{#if currentUser}}
-      <a class="button" href="/{{currentUser.details.username}}">Go to your todo lists</a>
+      <a class="button" href="/{{currentUser.details.username}}">Go to your stories</a>
     {{else}}
       <a class="button" href="/signup">Sign up!</a>
     {{/if}}
   </div>
-{{/if}}
+{{/BaseRoute}}
+{{#UsernameRoute}}
+  <div
+    class="page"
+    data-o-type="object"
+  >
+    <h2 class="page__heading">Stories</h2>
+    <div 
+      data-o-key="stories"
+      data-o-type="list"
+    >
+      {{#for story in data.stories}}
+        {{> story story=story pageAuthor=@root.pageAuthor}}
+      {{/for}}
+    </div>
+    <div class="flex justify-content--flex-end">
+      <button 
+        class="button"
+        data-i-new="story"
+      >Add Story</button>
+    </div>
+  </div>
+{{/UsernameRoute}}
