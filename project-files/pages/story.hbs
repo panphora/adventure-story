@@ -27,11 +27,11 @@
       data-l-key-content
       data-i-editable="content(text-multi-line)"
     >{{currentItem.content}}</div>
-    {{#if currentItem.choices.length}}
+    {{#or currentUser currentItem.choices.length}}
       <div class="story__choices-heading">What next?</div>
     {{else}}
       <div class="story__choices-heading">The End!</div>
-    {{/if}}
+    {{/or}}
     <div 
       class="story__choices-list"
       data-o-key="choices"
