@@ -13,6 +13,33 @@
       data-l-key-content
       data-i-editable="content(text-multi-line)"
     >{{currentItem.content}}</div>
+    <div 
+      class="story__choices"
+      data-o-key="choices"
+      data-o-type="list"
+    >
+      {{#for choice in currentItem.choices}}
+        <div 
+          class="story__choice"
+          data-o-key-id="{{choice.id}}"
+          data-o-type="object"
+          data-l-key-choice-text="a"
+        >
+          <a 
+            class="story__choice-text" 
+            href="/{{@root.pageAuthor.details.username}}/story/{{choice.id}}"
+          >{{choice.choiceText}}</a>
+          <button 
+            class="button"
+            data-i-editable
+          >Edit</button>
+        </div>
+      {{/for}}
+    </div>
+    <button 
+      class="button"
+      data-i-new="choice"
+    >New choice</button>
   </div>
 </div>
 

@@ -18,14 +18,14 @@
       data-o-key="stories"
       data-o-type="list"
     >
-      {{#for story in data.stories}}
-        {{> story story=story pageAuthor=@root.pageAuthor}}
+      {{#for storyListItem in data.stories}}
+        {{> storyListItem storyListItem=storyListItem pageAuthor=@root.pageAuthor}}
       {{/for}}
     </div>
     <div class="flex justify-content--flex-end">
       <button 
         class="button"
-        data-i-new="story"
+        data-i-new="storyListItem"
       >Add Story</button>
     </div>
   </div>
