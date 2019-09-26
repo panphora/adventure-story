@@ -19,7 +19,14 @@
       data-o-type="list"
     >
       {{#for storyListItem in data.stories}}
-        {{> storyListItem storyListItem=storyListItem pageAuthor=@root.pageAuthor}}
+        <div
+          data-o-key-id="{{storyListItem.id}}"
+          data-o-type="object"
+          data-l-key-name="a"
+        >
+          <a href="{{@root.pageAuthor.details.username}}/story/{{storyListItem.id}}">{{storyListItem.name}}</a>
+          <button class="button" data-i-editable>Edit</button>
+        </div>
       {{/for}}
     </div>
     <div class="flex justify-content--flex-end">

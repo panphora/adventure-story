@@ -1,4 +1,9 @@
 <div class="page page--wide">
+  {{#if parentItem.stories}}
+    <a class="button" href="/{{pageAuthor.details.username}}">Back</a>
+  {{else}}
+    <a class="button" href="/{{pageAuthor.details.username}}/story/{{parentItem.id}}">Back</a>
+  {{/if}}
   <div 
     class="story"
     data-o-type="object"
@@ -32,7 +37,7 @@
           <button 
             class="button"
             data-i-editable
-          >Edit</button>
+          >Edit Choice Text</button>
         </div>
       {{/for}}
     </div>
