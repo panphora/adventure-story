@@ -15,25 +15,31 @@
   >
     <h2 class="page__heading">Stories</h2>
     <div 
+      class="story-list"
       data-o-key="stories"
       data-o-type="list"
     >
       {{#for storyListItem in data.stories}}
         <div
+          class="story-list__story"
           data-o-key-id="{{storyListItem.id}}"
           data-o-type="object"
           data-l-key-name="a"
         >
-          <a href="{{@root.pageAuthor.details.username}}/story/{{storyListItem.id}}">{{storyListItem.name}}</a>
-          <button class="button" data-i-editable>Edit</button>
+          <a 
+            class="story-list__story-link" 
+            href="{{@root.pageAuthor.details.username}}/story/{{storyListItem.id}}"
+          >{{storyListItem.name}}</a>
+          <button 
+            class="story-list__story-edit-button" 
+            data-i-editable
+          >Edit</button>
         </div>
       {{/for}}
     </div>
-    <div class="flex justify-content--flex-end">
-      <button 
-        class="button"
-        data-i-new="storyListItem"
-      >Add Story</button>
-    </div>
+    <button 
+      class="button button--pink story-list__story-add-button"
+      data-i-new="storyListItem"
+    >Add Story</button>
   </div>
 {{/UsernameRoute}}

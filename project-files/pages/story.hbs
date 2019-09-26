@@ -1,8 +1,14 @@
 <div class="page page--wide">
   {{#if parentItem.stories}}
-    <a class="button" href="/{{pageAuthor.details.username}}">Back</a>
+    <a 
+      class="story__back-button" 
+      href="/{{pageAuthor.details.username}}"
+    >Back</a>
   {{else}}
-    <a class="button" href="/{{pageAuthor.details.username}}/story/{{parentItem.id}}">Back</a>
+    <a 
+      class="story__back-button" 
+      href="/{{pageAuthor.details.username}}/story/{{parentItem.id}}"
+    >Back</a>
   {{/if}}
   <div 
     class="story"
@@ -10,7 +16,10 @@
     data-o-key-id="{{currentItem.id}}"
   >
     {{#if parentItem.stories}}
-      <div class="story__beginning-heading">In the beginning...</div>
+      <h2 class="page__heading">In the beginning...</h2>
+    {{else}}
+      <h2 class="page__heading-label">You decided to...</h2>
+      <div class="page__heading page__heading--small">{{currentItem.choiceText}}</div>
     {{/if}}
     <div
       class="story__content"
@@ -18,8 +27,9 @@
       data-l-key-content
       data-i-editable="content(text-multi-line)"
     >{{currentItem.content}}</div>
+    <div class="story__choices-heading">What next?</div>
     <div 
-      class="story__choices"
+      class="story__choices-list"
       data-o-key="choices"
       data-o-type="list"
     >
@@ -31,20 +41,20 @@
           data-l-key-choice-text="a"
         >
           <a 
-            class="story__choice-text" 
+            class="story__choice-link" 
             href="/{{@root.pageAuthor.details.username}}/story/{{choice.id}}"
           >{{choice.choiceText}}</a>
           <button 
-            class="button"
+            class="story__choice-edit-button"
             data-i-editable
-          >Edit Choice Text</button>
+          >Edit</button>
         </div>
       {{/for}}
     </div>
     <button 
-      class="button"
+      class="button button--grape story__choice-new-button"
       data-i-new="choice"
-    >New choice</button>
+    >Add choice</button>
   </div>
 </div>
 
