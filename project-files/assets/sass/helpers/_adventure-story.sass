@@ -96,6 +96,21 @@
       background-color: #a5d8ff
   &__choice-new-button
 
+body:not(.logged-in)
+  .story-list
+    &__story-edit-button
+      display: none
+    &__story-add-button
+      display: none
 
+  .story
+    &__content
+      cursor: default
+    &__choice-edit-button
+      display: none
+    &__choice-new-button
+      display: none
 
+  #remake__auto-generated
+    display: none
 
