@@ -44,7 +44,7 @@
     "concurrently": "^4.1.0",
     "copy-and-watch": "^0.1.4",
     "nodemon": "^1.19.1",
-    "parcel": "^1.12.3",
+    "parcel": "^2.8.2",
     "sass": "^1.22.9"
   }
 }
